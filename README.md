@@ -1,5 +1,5 @@
 
-###  DATE: 26/03/2025
+###  DATE: 26-03-2025
 
 ###  NAME: BHUMIREDDY LAKSHMI VARDHAN REDDY
 ###  ROLL NO : 212223240016
@@ -43,30 +43,33 @@ configure in the usart 2 as asynchronous mode and set the baud rate as 115200 as
 
 ## STM 32 CUBE PROGRAM :
 ```
-#include "main.h"
-#if defined (_ICCARM) || defined (_ARMCC_VERSION)
-#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f);
-#elif defined(_GNUC_)
+#include <main.h>
+#include <stdio.h>
+#if defined(__ICCARM__)||defined(_ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE*f);
+#elif defined(__GNUC__)
 #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
 #endif
- while (1)
-  {
-    printf("CSE(Cyber Security)\n");
-    HAL_Delay(1000);
-	  /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+  while (1)
+  {
+	  printf("CSE(Cyber Security)\n");
+	  HAL_Delay(1000);
   }
 PUTCHAR_PROTOTYPE
 {
+	HAL_UART_Transmit(&huart2, (uint8_t*)&ch,1,0xFFFF);
+		return ch;
 
-  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
-
-  return ch;
 }
 ```
-## Output screen shots of Serial port utility   :
-![431664621-ffd74120-db9d-4d05-95fa-31f6e308e5cb](https://github.com/user-attachments/assets/d3fdec2f-4155-48d9-8d96-a03b83b46056)
 
+
+## Output screen shots of Serial port utility   :
+ 
+ ![WhatsApp Image 2025-04-09 at 11 32 25_27f33c15](https://github.com/user-attachments/assets/a2c11ec7-f20a-4bf3-94ae-ffec8817e021)
+
+ 
+ 
 ## Result :
 configuring and usart is accomplished and string data is visualized on the serial port utilty
